@@ -6,7 +6,7 @@
  * @returns
  */
 const Style = () => {
-    return <style jsx global>{`
+  return <style jsx global>{`
 
     // 底色
     body{
@@ -48,6 +48,173 @@ const Style = () => {
             max-width: 1140px;
         }
     }
+
+    //  added by xuzhou 首屏文字样式
+  // #theme-proxio .hero-content h1 {
+  //   font-size: 4rem;
+  //   font-weight: 700;
+  //   margin-bottom: 1rem;
+  // }
+
+  // #theme-proxio .hero-content p {
+  //   font-size: 1.25rem;
+  //   margin-bottom: 1.5rem;
+  // }
+
+  // #theme-proxio .hero-content p:last-child {
+  //   font-size: 1rem;
+  //   opacity: 0.8;
+  // } // end added by xuzhou 首屏文字样式
+
+  // 首屏布局样式
+  #theme-proxio #home {
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #theme-proxio #home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    z-index: 1;
+  }
+  
+  #theme-proxio .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  #theme-proxio .hero-content h1 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  
+  #theme-proxio .hero-content p {
+    line-height: 1.6;
+  }
+  
+  #theme-proxio .hero-content ul {
+    margin-top: 2rem;
+  }
+  
+  /* 关键字高亮样式 */
+  #theme-proxio .highlight-text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2em;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    position: relative;
+    margin: 0 4px;
+  }
+  
+  #theme-proxio .highlight-text::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #fff, transparent);
+    border-radius: 1px;
+  }
+  
+  /* 自由关键字特别突出样式 */
+  #theme-proxio .freedom-text {
+    font-size: 2.5em;
+    font-weight: 800;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+    animation: pulse 2s infinite;
+  }
+  
+  #theme-proxio .freedom-text::after {
+    height: 3px;
+    background: linear-gradient(90deg, #fff, #fff);
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* 视觉元素样式 */
+  #theme-proxio .rule-symbol, #theme-proxio .system-symbol, #theme-proxio .freedom-symbol {
+    transition: all 0.3s ease;
+  }
+  
+  #theme-proxio .rule-symbol:hover, #theme-proxio .system-symbol:hover, #theme-proxio .freedom-symbol:hover {
+    transform: translateY(-5px);
+  }
+  
+  #theme-proxio .rule-symbol div {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  #theme-proxio .system-symbol div {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  
+  #theme-proxio .freedom-symbol div {
+    background: rgba(255, 255, 255, 0.2);
+    animation: pulse 3s infinite;
+  }
+  
+  /* 品牌哲学样式 */
+  #theme-proxio .hero-content .italic {
+    line-height: 1.6;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    #theme-proxio .hero-content .flex.space-x-8 {
+      flex-direction: column;
+      space-x: 0;
+      space-y: 4;
+    }
+    
+    #theme-proxio .hero-content .flex.space-x-8 div:nth-child(2),
+    #theme-proxio .hero-content .flex.space-x-8 div:nth-child(4) {
+      transform: rotate(90deg);
+      margin: 20px 0;
+    }
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    #theme-proxio #home {
+      padding: 0 1rem;
+    }
+    
+    #theme-proxio .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    #theme-proxio .hero-content p {
+      font-size: 1rem;
+    }
+    
+    #theme-proxio .hero-content ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    #theme-proxio .hero-content li {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
         
 
     #theme-proxio .container {
