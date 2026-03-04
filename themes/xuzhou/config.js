@@ -2,7 +2,7 @@
  * 另一个落地页主题
  */
 const CONFIG = {
-  PROXIO_WELCOME_COVER_ENABLE: true, //是否显示页面进入的欢迎文字
+  PROXIO_WELCOME_COVER_ENABLE: false, //是否显示页面进入的欢迎文字
   PROXIO_WELCOME_TEXT: '欢迎来到此网站，点击任意位置进入', // 欢迎文字，留空则不启用
 
   // 英雄区块导航
@@ -18,7 +18,7 @@ const CONFIG = {
   PROXIO_HERO_BUTTON_2_ICON: '/images/starter/github-mark.svg', // 英雄区按钮2的图标，不需要则留空
 
   // 英雄区配图，如需隐藏，改为空值即可 ''
-  PROXIO_HERO_BANNER_IMAGE: '', // hero区背景，默认是获取Notion背景，如需另外配置图片可以填写在这里
+  PROXIO_HERO_BANNER_IMAGE: '/images/black1X1.webp', // hero区背景，默认是获取Notion背景，如需另外配置图片可以填写在这里  by xuzhou 纯黑背景
   PROXIO_HERO_BANNER_IFRAME_URL: '', // hero背景区内嵌背景网页 ，可以配置一个网页地址，例如动画网页https://my.spline.design/untitled-b0c6e886227646c34afc82cdc6de4ca2/
 
   // 文章区块
