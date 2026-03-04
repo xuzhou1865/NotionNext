@@ -46,8 +46,8 @@ export const Logo = props => {
         <LazyImage
           priority
           src={siteInfo?.icon}
-          width={24}
-          height={20}
+          width={48} // by xuzhou  原来24，改成48
+          height={48} // by xuzhou  原来20，改成48
           alt={siteConfig('AUTHOR')}
           className='mr-2 hidden md:inline-block'
         />
@@ -56,7 +56,7 @@ export const Logo = props => {
           onClick={() => {
             router.push('/')
           }}
-          className={`${logoTextColor} logo dark:text-white py-1.5 header-logo-text whitespace-nowrap font-semibold`}>
+          className={`${logoTextColor} logo dark:text-white py-1.5 header-logo-text whitespace-nowrap font-semibold`} hidden> // by xuzhou 隐藏title
           {siteConfig('TITLE')}
         </span>
       </div>
