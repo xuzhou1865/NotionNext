@@ -124,18 +124,7 @@ const Style = () => {
     border-radius: 1px;
   }
   
-  /* 自由关键字特别突出样式 */
-  #theme-proxio .freedom-text {
-    font-size: 2.5em;
-    font-weight: 800;
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
-    animation: pulse 2s infinite;
-  }
-  
-  #theme-proxio .freedom-text::after {
-    height: 3px;
-    background: linear-gradient(90deg, #fff, #fff);
-  }
+
   
   @keyframes pulse {
     0% {

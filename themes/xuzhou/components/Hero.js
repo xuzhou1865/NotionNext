@@ -47,10 +47,10 @@ export const Hero = props => {
               <div className='hero-content wow fadeInUp mx-auto max-w-4xl text-center' data-wow-delay='0.5s'>
                 {/* 主标题 - 序舟 IP */}
                 <div className='mb-8'>
-                  <h1 className='text-3xl font-bold leading-tight sm:text-4xl sm:leading-tight lg:text-5xl lg:leading-tight mb-2'>
+                  <h1 className='text-3xl font-bold leading-tight sm:text-4xl sm:leading-tight lg:text-5xl lg:leading-tight mb-2 text-gray-300'>
                     {siteConfig('PROXIO_HERO_TITLE_1', null, config)}
                   </h1>
-                  <div className='w-24 h-1 bg-white mx-auto my-4'></div>
+                  <div className='w-24 h-1 bg-gray-400 mx-auto my-4'></div>
                 </div>
                 
          {/* 视觉元素 - 规则与系统的象征 */}
@@ -79,7 +79,7 @@ export const Hero = props => {
                 
                 {/* 核心价值主张 */}
                 <div className='mb-12'>
-                  <p className='mx-auto max-w-3xl text-lg font-medium text-gray-300 sm:text-xl sm:leading-relaxed' dangerouslySetInnerHTML={{ __html: PROXIO_HERO_DESCRIPTION_2 ? PROXIO_HERO_DESCRIPTION_2.replace(/(打造|系统|赢取)/g, '<span class="highlight-text">$1</span>').replace(/(自由)/g, '<span class="highlight-text freedom-text">$1</span>') : '' }} />
+                  <p className='mx-auto max-w-3xl text-lg font-medium text-gray-300 sm:text-xl sm:leading-relaxed' dangerouslySetInnerHTML={{ __html: PROXIO_HERO_DESCRIPTION_2 ? PROXIO_HERO_DESCRIPTION_2.replace(/(系统|自由)/g, '<span class="highlight-text">$1</span>') : '' }} />
                 </div>
                 
                
