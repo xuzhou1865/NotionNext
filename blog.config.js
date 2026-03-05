@@ -15,11 +15,11 @@ const BLOG = {
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'dark', // ['light', 'dark', 'auto'], // light 日间模式 ， dark夜间模式， auto根据时间和主题自动夜间模式  by xuzhou 深色背景模式
   APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 夜间模式起至时间，false时关闭根据时间自动切换夜间模式
 
-  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || '', // 您的昵称 例如 tangly1024
+  AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || '序舟', // 您的昵称 例如 tangly1024
   BIO: process.env.NEXT_PUBLIC_BIO || '一个痴迷于自由的构建者', // 作者简介
   LINK: process.env.NEXT_PUBLIC_LINK || 'https://thexuzhou.com', // 网站地址
-  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || '财务自由, 自由, 投资, 序舟', // 网站关键词 英文逗号隔开
-  BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon.ico', // blog favicon 配置, 默认使用 /public/favicon.ico，支持在线图片，如 https://img.imesong.com/favicon.png
+  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || '序舟,序舟投资系统,序舟商业系统,序舟投资笔记,财务自由,被动收入,时间自由,人生自由,稳健复利,如何实现财务自由,如何打造被动收入,不盯盘的投资方法,最小时间投入的投资,如何构建投资系统,如何打造商业系统,如何用系统赚钱,不想上班,不想一辈子打工,可复制的投资体系,系统投资方法,商业系统搭建,一人公司构建,知识变现路径,双系统实现自由,价值投资,长期主义,个人品牌打造,系统思维,财富管理', // 网站关键词 英文逗号隔开
+  BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon32.png', // blog favicon 配置, 默认使用 /public/favicon.ico，支持在线图片，如 https://img.imesong.com/favicon.png
   BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXX
   BEI_AN_LINK: process.env.NEXT_PUBLIC_BEI_AN_LINK || 'https://beian.miit.gov.cn/', // 备案查询链接，如果用了萌备等备案请在这里填写
   BEI_AN_GONGAN: process.env.NEXT_PUBLIC_BEI_AN_GONGAN || '', // 公安备案号，例如 '浙公网安备3xxxxxxxx8号'
@@ -65,7 +65,7 @@ const BLOG = {
   // 欢迎语打字效果,Hexo,Matery主题支持, 英文逗号隔开多个欢迎语。
   GREETING_WORDS:
     process.env.NEXT_PUBLIC_GREETING_WORDS ||
-    'Hi，我是一个程序员, Hi，我是一个打工人,Hi，我是一个干饭人,欢迎来到我的博客🎉',
+    '一个痴迷于自由的构建者，欢迎你的到来~',
 
   // uuid重定向至 slug
   UUID_REDIRECT: process.env.UUID_REDIRECT || false
