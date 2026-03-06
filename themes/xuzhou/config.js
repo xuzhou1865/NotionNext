@@ -183,7 +183,7 @@ const CONFIG = {
   PROXIO_ABOUT_TEXT_1: '一个痴迷于自由的构建者。',
   PROXIO_ABOUT_TEXT_2:
     '你好，我是序舟, 前阿里云高级产品专家，40岁选择“退休”，成为一名职业投资人和个人创造者。现在，我帮助他人搭建可复制的投资与商业双系统 —— 用最少的时间投入，实现财务自由，夺回人生的主动权。',
-  PROXIO_ABOUT_PHOTO_URL: '/aboutme520.webp',
+  PROXIO_ABOUT_PHOTO_URL: '/aboutme_new.jpg',
   PROXIO_ABOUT_KEY_1: '投资经验',
   PROXIO_ABOUT_VAL_1: '18年+',
   PROXIO_ABOUT_KEY_2: '长期收益水平',
