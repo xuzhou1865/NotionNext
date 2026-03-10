@@ -25,7 +25,7 @@ export const Footer = ({ title }) => {
       <div className='max-w-screen-3xl w-full mx-auto '>
         {/* 信息与链接区块 */}
         <div className='w-full flex lg:flex-row flex-col justify-between py-16'>
-          <div className='gap-y-2 flex flex-col items-start dark:text-gray-200'>
+          {/* <div className='gap-y-2 flex flex-col items-start dark:text-gray-200'>
             <div className='flex gap-x-1'>
               <LazyImage
                 src={siteInfo?.icon}
@@ -41,7 +41,7 @@ export const Footer = ({ title }) => {
             </div>
             <div className='px-1'>{siteConfig('DESCRIPTION')}</div>
             <div className='px-1'>{siteConfig('CONTACT_EMAIL')}</div>
-          </div>
+          </div> */}
 
           {/* 右侧链接区块 */}
           <div className='flex gap-x-4'>
