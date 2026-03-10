@@ -1,58 +1,59 @@
 /* eslint-disable @next/next/no-img-element */
 import { siteConfig } from '@/lib/config'
-import LazyImage from '@/components/LazyImage'
 import SmartLink from '@/components/SmartLink'
 /**
  * 作者团队
  * @returns 
  */
 export const Team = () => {
-    const PROXIO_ABOUT_PHOTO_URL = siteConfig('PROXIO_ABOUT_PHOTO_URL')
-    const AUTHOR = siteConfig('AUTHOR')
-
     return (
         <>
             {/* <!-- ====== Team Section Start --> */}
             <section
                 id='team'
-                className='overflow-hidden pb-12 pt-20 lg:pb-[90px] lg:pt-[120px]'>
-                <div className='container mx-auto wow fadeInUp' data-wow-delay='.2s'>
-                    <div className='flex flex-col md:flex-row -mx-4 justify-between'>
-                        {/* 左边肖像图 */}
-                        <div className='mx-6 mb-6 max-w-96 border-gray-200 dark:border-[#333333] dark:bg-dark-1 border rounded-2xl overflow-hidden'>
-                            <LazyImage alt={AUTHOR} src={PROXIO_ABOUT_PHOTO_URL} className='object-cover h-full' />
-                        </div>
-                        {/* 右侧文字说明 */}
-                        <div className='flex flex-col px-4 space-y-4 mx-auto justify-between max-w-[485px]'>
-                            <div>
-                                <span className='px-3 py-0.5 mb-2 dark:bg-dark-1 rounded-2xl border border-gray-200 dark:border-[#333333] dark:text-white'>
-                                    {siteConfig('PROXIO_ABOUT_TITLE')}
-                                </span>
-                            </div>
-                            <h2 className='mb-3 text-xl md:text-3xl leading-[1.2] dark:text-white '>
+                className='overflow-hidden py-24 lg:py-32 bg-gradient-to-b from-transparent to-gray-50 dark:to-dark-2'>
+                <div className='container mx-auto px-4 md:px-6'>
+                    <div className='max-w-4xl mx-auto'>
+                        {/* 标题部分 */}
+                        <div className='mb-12 text-center'>
+                            <span className='inline-block px-4 py-1.5 mb-4 text-sm font-medium text-gray-700 bg-gray-100 rounded-full dark:text-gray-300 dark:bg-gray-800'>
+                                {siteConfig('PROXIO_ABOUT_TITLE')}
+                            </span>
+                            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-dark dark:text-white mb-6'>
                                 {siteConfig('PROXIO_ABOUT_TEXT_1')}
                             </h2>
-                            <p
-                                dangerouslySetInnerHTML={{
-                                    __html: siteConfig('PROXIO_ABOUT_TEXT_2')
-                                }}
-                                className='text-base text-body-color dark:text-dark-6'></p>
+                        </div>
+                        
+                        {/* 内容部分 */}
+                        <div className='space-y-10'>
+                            {/* 个人介绍 */}
+                            <div className='prose prose-lg dark:prose-invert max-w-none'>
+                                <p 
+                                    dangerouslySetInnerHTML={{
+                                        __html: siteConfig('PROXIO_ABOUT_TEXT_2')
+                                    }}
+                                    className='text-lg leading-relaxed text-gray-700 dark:text-gray-300'
+                                ></p>
+                            </div>
+                            
                             {/* 数值四宫格 */}
-                            <div className='grid grid-cols-2 grid-rows-2 pt-6 gap-4'>
+                            <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pt-8'>
                                 <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_1')} v={siteConfig('PROXIO_ABOUT_VAL_1')} />
                                 <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_2')} v={siteConfig('PROXIO_ABOUT_VAL_2')} />
                                 <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_3')} v={siteConfig('PROXIO_ABOUT_VAL_3')} />
                                 <KeyVal k={siteConfig('PROXIO_ABOUT_KEY_4')} v={siteConfig('PROXIO_ABOUT_VAL_4')} />
                             </div>
-
-                            {/* <div className='mt-8 w-full flex justify-end py-2'>
+                            
+                            {/* 行动按钮 */}
+                            <div className='mt-12 flex flex-col sm:flex-row gap-4 justify-center'>
                                 <SmartLink
                                     href={siteConfig('PROXIO_ABOUT_BUTTON_URL', '')}
-                                    className='px-4 py-2 rounded-3xl border dark:border-gray-200 border-[#333333] text-base font-medium text-dark hover:bg-gray-100 dark:text-white dark:hover:bg-white dark:hover:text-black duration-200'>
-                                    {siteConfig('PROXIO_ABOUT_BUTTON_TEXT')}
-                                    <i className="pl-4 fa-solid fa-arrow-right"></i>
+                                    className='px-8 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primary/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl'
+                                >
+                                    {siteConfig('PROXIO_ABOUT_BUTTON_TEXT', '了解更多')}
+                                    <i className="pl-3 fa-solid fa-arrow-right"></i>
                                 </SmartLink>
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,9 +69,9 @@ const KeyVal = ({ k, v }) => {
         return null;
     }
     return (
-        <div className='space-y-2'>
-            <div className='dark:text-dark-6'>{k}</div>
-            <div className='dark:text-white text-2xl font-semibold'>{v}</div>
+        <div className='text-center group transition-all duration-300 hover:scale-105'>
+            <div className='text-sm text-gray-500 dark:text-gray-400 mb-2 font-medium'>{k}</div>
+            <div className='text-3xl font-bold text-dark dark:text-white'>{v}</div>
         </div>
     )
 }
