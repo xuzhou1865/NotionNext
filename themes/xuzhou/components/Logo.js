@@ -42,7 +42,12 @@ export const Logo = props => {
 
   return (
     <div className='w-60 max-w-full px-4'>
-      <div className='navbar-logo flex items-center w-full py-5 cursor-pointer'>
+      <div 
+        className='navbar-logo flex items-center w-full py-5 cursor-pointer hover:opacity-90 transition-opacity duration-300'
+        onClick={() => {
+          router.push('/')
+        }}
+      >
         <LazyImage
           priority
           src={siteInfo?.icon}
@@ -53,9 +58,6 @@ export const Logo = props => {
         />
         {/* logo文字 */}
         <span
-          onClick={() => {
-            router.push('/')
-          }}
           className={`${logoTextColor} logo dark:text-white py-1.5 header-logo-text whitespace-nowrap font-semibold`} hidden> // by xuzhou 隐藏title
           {siteConfig('TITLE')}
         </span>
