@@ -123,6 +123,30 @@
   align-items: flex-start;
 }
 
+/* PC端浏览器宽度调整 */
+@media (min-width: 1024px) {
+  .notion-page-content-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  
+  .notion-page {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  
+  /* xuzhou 主题文章页面宽度调整 */
+  #theme-proxio #article-wrapper .notion-page-content-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  
+  #theme-proxio #article-wrapper .notion-page {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
 .notion-aside {
   position: sticky;
   top: calc(88px);
