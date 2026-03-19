@@ -14,20 +14,6 @@ export const Blog = ({ posts }) => {
     return null
   }
 
-  // 博客列表默认显示summary文字，当鼠标指向时显示文章封面。这里可选把summary文字替换成图片占位符。
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_1 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_1'
-  )
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_2 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_2'
-  )
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_3 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_3'
-  )
-  const PROXIO_BLOG_PLACEHOLDER_IMG_URL_4 = siteConfig(
-    'PROXIO_BLOG_PLACEHOLDER_IMG_URL_4'
-  )
-
   return (
     <>
       {/* <!-- ====== Blog Section Start --> */}
@@ -52,53 +38,23 @@ export const Blog = ({ posts }) => {
           {/* 博客列表 此处优先展示3片文章 */}
           <div className='-mx-4 grid md:grid-cols-2 grid-cols-1'>
             {posts?.map((item, index) => {
-              // 文章封面图片，默认使用占位符 根据index 判断获取的时哪一张图片
-              let coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_1
-              if (index === 0) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_1
-              } else if (index === 1) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_2
-              } else if (index === 2) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_3
-              } else if (index === 3) {
-                coverImg = PROXIO_BLOG_PLACEHOLDER_IMG_URL_4
-              }
               return (
                 <div key={index} className='w-full px-4'>
                   <div
-                    className='wow fadeInUp group mb-10 relative overflow-hidden blog'
+                    className='wow fadeInUp mb-10 relative overflow-hidden blog'
                     data-wow-delay='.1s'>
-                    <div className='relative rounded-xl border overflow-hidden shadow-md dark:border-gray-700 dark:bg-gray-800'>
-                      <SmartLink href={item?.href} className='block'>
-                        {item.pageCoverThumbnail && (
-                          // 图片半透明
-                          <LazyImage
-                            src={item.pageCoverThumbnail}
-                            alt={item.title}
-                            className='w-full h-80 object-cover transition-transform duration-500 rounded-xl'
-                          />
-                        )}
-                        {/* 遮罩层，仅覆盖图片部分 */}
-                        <div className='absolute inset-0 bg-gray-100 dark:bg-hexo-black-gray transition-all duration-500 group-hover:opacity-50 group-hover:bg-black' />
-                        {/* 鼠标悬停时显示的文字内容 */}
-                        <div className='absolute inset-0 flex items-center justify-center group-hover:scale-110 duration-200 group-hover:text-white'>
-                          {!coverImg && (
-                            <p className='max-w-[370px] text-base text-body-color dark:text-dark-6 flex items-center justify-center duration-200 group-hover:text-white '>
-                              {item.summary}
-                            </p>
-                          )}
-                          <LazyImage
-                            src={coverImg}
-                            className='absolute max-h-full object-cover'
-                          />
-                        </div>
-                      </SmartLink>
-                    </div>
+                    {/* 图片部分 */}
+                    <SmartLink href={item?.href} className='block'>
+                      {item.pageCoverThumbnail && (
+                        <LazyImage
+                          src={item.pageCoverThumbnail}
+                          alt={item.title}
+                          className='w-full h-80 object-cover rounded-xl'
+                        />
+                      )}
+                    </SmartLink>
                     {/* 内容部分 */}
-                    <div className='relative z-10 p-4'>
-                      <span className='inline-blocktext-center text-xs font-medium leading-loose text-white'>
-                        {item.publishDay}
-                      </span>
+                    <div className='p-6'>
                       <h3>
                         <SmartLink
                           href={item?.href}
@@ -106,6 +62,16 @@ export const Blog = ({ posts }) => {
                           {item.title}
                         </SmartLink>
                       </h3>
+                      {/* 摘要 */}
+                      {item.summary && (
+                        <p className='mb-6 text-gray-600 dark:text-gray-400 leading-relaxed'>
+                          {item.summary}
+                        </p>
+                      )}
+                      {/* 发布时间 */}
+                      <div className='flex items-center text-sm text-gray-500 dark:text-gray-400'>
+                        <span>{item.publishDay || item.lastEditedDay}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
