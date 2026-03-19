@@ -17,7 +17,7 @@ export const Blog = ({ posts }) => {
   return (
     <>
       {/* <!-- ====== Blog Section Start --> */}
-      <section className='bg-white pt-20 dark:bg-dark lg:pt-[120px]'>
+      <section className='bg-white pt-20 dark:bg-dark lg:pt-[120px] font-sans'>
         <div className='container mx-auto'>
           {/* 区块标题文字 */}
           <div
@@ -64,7 +64,7 @@ export const Blog = ({ posts }) => {
                       </h3>
                       {/* 摘要 */}
                       {item.summary && (
-                        <p className='mb-6 text-gray-600 dark:text-gray-400 leading-relaxed'>
+                        <p className='mb-6 text-gray-600 dark:text-white leading-relaxed'>
                           {item.summary}
                         </p>
                       )}
