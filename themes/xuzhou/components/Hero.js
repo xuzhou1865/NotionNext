@@ -51,7 +51,7 @@ export const Hero = props => {
                       《序舟好公司精选·估值评级》
                     </h3>
                     <p className='text-gray-300 mb-10 max-w-2xl mx-auto'>
-                      基于规则和数据的价值发现，动态更新的优质公司清单和估值评级，帮您做出更明智的投资决策
+                      基于规则和数据的价值发现，动态更新的优质公司清单和估值评级，帮您做出更明智的投资决策。
                     </p>
                     <SmartLink
                       href='https://xiaobot.net/p/xz_good_company?refer=d1259880-8c91-425a-8c0d-04376ba72b1a'

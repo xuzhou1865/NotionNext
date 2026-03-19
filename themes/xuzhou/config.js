@@ -25,9 +25,9 @@ const CONFIG = {
 
   // 文章区块
   PROXIO_BLOG_ENABLE: true, // 首页博文区块开关
-  PROXIO_BLOG_TITLE: '精选',
+  PROXIO_BLOG_TITLE: '博文',
   PROXIO_BLOG_COUNT: 4, // 首页博文区块展示前4篇文章
-  PROXIO_BLOG_TEXT_1: '序舟的专栏',
+  PROXIO_BLOG_TEXT_1: '序舟手札',
 
   // 区块默认内容显示文章的summary文本，但也支持用自定义图片或logo德国替换掉占位显示内容
   PROXIO_BLOG_PLACEHOLDER_IMG_URL_1: '', // 填写要替换成的图片，支持图床或直接上传到项目中，示例  /images/feature-1.webp
@@ -180,9 +180,9 @@ const CONFIG = {
   // 关于作者区块
   PROXIO_ABOUT_ENABLE: true, // 关于作者区块区块开关
   PROXIO_ABOUT_TITLE: '关于我',
-  PROXIO_ABOUT_TEXT_1: '一个痴迷于自由的系统构建者。',
+  PROXIO_ABOUT_TEXT_1: '痴迷于自由的系统构建者',
   PROXIO_ABOUT_TEXT_2:
-    '你好，我是序舟。前阿里云高级产品专家，40 岁选择 “退休”—— 通过搭建可复制的投资与商业双系统，我实现了财务自由，也希望帮更多人夺回人生的主动权。',
+    '你好，我是序舟。前阿里云高级产品专家，40岁实现时间自由——通过搭建基于规则的投资系统，我获得了稳定的被动收入，也希望帮更多人赢得人生主动权。',
   PROXIO_ABOUT_PHOTO_URL: '/aboutme_new.jpg',
   PROXIO_ABOUT_KEY_1: '投资经验',
   PROXIO_ABOUT_VAL_1: '18年+',
@@ -193,8 +193,8 @@ const CONFIG = {
   PROXIO_ABOUT_KEY_4: '实现自由年龄',
   PROXIO_ABOUT_VAL_4: '40岁',
 
-  PROXIO_ABOUT_BUTTON_URL: '/aboutme',
-  PROXIO_ABOUT_BUTTON_TEXT: '了解更多',
+  PROXIO_ABOUT_BUTTON_URL: '/article/aboutme',
+  PROXIO_ABOUT_BUTTON_TEXT: '了解我的故事',
 
   // 横向滚动文字
   PROXIO_BRANDS_ENABLE: true, // 滚动文字
