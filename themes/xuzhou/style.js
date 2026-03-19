@@ -357,6 +357,18 @@ const Style = () => {
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
   
+  /* 移动端 logo 样式 */
+  @media (max-width: 768px) {
+    #theme-proxio .navbar-logo {
+      padding: 1rem 0;
+    }
+    
+    #theme-proxio .navbar-logo img {
+      width: 36px;
+      height: 36px;
+    }
+  }
+  
   .text-body-color{
     --tw-text-opacity: 1;
     color: rgb(99 115 129 / var(--tw-text-opacity));
