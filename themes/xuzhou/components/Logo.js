@@ -54,7 +54,7 @@ export const Logo = props => {
           width={48} // by xuzhou  原来24，改成48
           height={48} // by xuzhou  原来20，改成48
           alt={siteConfig('AUTHOR')}
-          className='mr-2 hidden md:inline-block'
+          className='mr-2 inline-block'
         />
         {/* logo文字 */}
         <span
