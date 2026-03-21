@@ -18,7 +18,7 @@ const BLOG = {
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || '序舟', // 您的昵称 例如 tangly1024
   BIO: process.env.NEXT_PUBLIC_BIO || '一个痴迷于自由的系统构建者', // 作者简介
   LINK: process.env.NEXT_PUBLIC_LINK || 'https://thexuzhou.com', // 网站地址
-  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || '序舟,序舟投资系统,序舟商业系统,序舟投资笔记,财务自由,被动收入,时间自由,人生自由,稳健复利,如何实现财务自由,如何打造被动收入,不盯盘的投资方法,最小时间投入的投资,如何构建投资系统,如何打造商业系统,如何用系统赚钱,不想上班,不想一辈子打工,可复制的投资体系,系统投资方法,商业系统搭建,一人公司构建,知识变现路径,双系统实现自由,价值投资,长期主义,个人品牌打造,系统思维,财富管理', // 网站关键词 英文逗号隔开
+  KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || '序舟,序舟官网,序舟选股,序舟好公司,序舟投资系统,,序舟投资笔记,财务自由,被动收入,时间自由,人生自由,稳健复利,如何实现财务自由,如何打造被动收入,不盯盘的投资方法,最小时间投入的投资,如何构建投资系统,如何用系统赚钱,不想上班,不想一辈子打工,可复制的投资体系,系统投资方法,价值投资,长期主义', // 网站关键词 英文逗号隔开
   BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon32.png', // blog favicon 配置, 默认使用 /public/favicon.ico，支持在线图片，如 https://img.imesong.com/favicon.png
   BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXX
   BEI_AN_LINK: process.env.NEXT_PUBLIC_BEI_AN_LINK || 'https://beian.miit.gov.cn/', // 备案查询链接，如果用了萌备等备案请在这里填写
