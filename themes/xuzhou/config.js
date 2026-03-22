@@ -218,13 +218,17 @@ const CONFIG = {
       name: '友情链接',
       menus: [
         {
-          title: '序舟的投资笔记',
+          title: '序舟的雪球账号',
           href: 'https://xueqiu.com/u/1362870647'
         },
-        // {
-        //   title: 'NotionNext',
-        //   href: 'https://www.tangly1024.com'
-        // }
+        {
+          title: '序舟唯一公开实盘组合',
+          href: 'https://xueqiu.com/P/ZH3553710'
+        },
+        {
+          title: '小报童专栏《序舟好公司精选・估值评级（周更）》',
+          href: 'https://xiaobot.net/p/xz_good_company?refer=d1259880-8c91-425a-8c0d-04376ba72b1a'
+        }
       ]
     },
     // {
