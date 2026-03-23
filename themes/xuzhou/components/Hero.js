@@ -54,7 +54,7 @@ export const Hero = props => {
                       基于规则和数据的价值发现｜动态优质公司清单与估值评级，助您理性投资决策。
                     </p>
                     <SmartLink
-                      href='https://xiaobot.net/p/xz_good_company?refer=d1259880-8c91-425a-8c0d-04376ba72b1a'
+                      href='https://xiaobot.net/p/xz_good_company?refer=d1259880-8c91-425a-8c0d-04376ba72b1a&utm_source=thexuzhou.com&utm_medium=website&utm_campaign=xiaobot_subscribe&utm_content=home_btn'
                       className='inline-flex items-center justify-center rounded-lg bg-white text-gray-900 px-10 py-5 text-center text-lg font-bold transition duration-300 ease-in-out hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:-translate-y-1'>
                       前往订阅 →
                     </SmartLink>
