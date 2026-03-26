@@ -51,7 +51,7 @@ export const Hero = props => {
                       《序舟的投资方法》
                     </h3>
                     <p className='text-gray-300 mb-10 max-w-2xl mx-auto'>
-                      近20年实战沉淀，普通人也能用的稳健投资体系，帮你少走 10 年弯路。
+                      近20年实战沉淀，普通人也能用的稳健投资体系，帮你少走 10 年弯路。 
                     </p>
                     <SmartLink
                       href='https://www.thexuzhou.com/article/tzff'
