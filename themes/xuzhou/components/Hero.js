@@ -35,7 +35,7 @@ export const Hero = props => {
                 {/* 小字使命 */}
                 <div className='mb-16'>
                   <p className='text-gray-500 dark:text-gray-400 text-lg'>
-                    使命：帮更多人实现人生自由
+                    使命：帮更多人通过投资实现人生自由
                   </p>
                 </div>
                 
@@ -44,19 +44,18 @@ export const Hero = props => {
                   <div className='text-center'>
                     <div className='mb-6'>
                       <span className='inline-block px-6 py-2 bg-gray-800 text-gray-300 text-sm font-medium rounded-full'>
-                        ⭐ 核心理念
+                        ⭐ 小报童专栏
                       </span>
                     </div>
                     <h3 className='text-2xl sm:text-3xl font-bold text-white mb-4'>
-                      《序舟的投资方法》
+                        序舟好公司精选・估值评级（周更）
                     </h3>
                     <p className='text-gray-300 mb-10 max-w-2xl mx-auto'>
-                      近20年实战沉淀，普通人也能用的稳健投资体系，帮你少走 10 年弯路。 
-                    </p>
+                      采用“序舟的投资方法”（本网站免费分享），结合本专栏，<br /> 你也可以像我一样，通过投资改变生活，实现自由。</p>
                     <SmartLink
-                      href='https://www.thexuzhou.com/article/tzff'
+                      href='https://xiaobot.net/p/xz_good_company?refer=d1259880-8c91-425a-8c0d-04376ba72b1a&utm_source=thexuzhou.com&utm_medium=website&utm_campaign=xiaobot_subscribe&utm_content=home_btn'
                       className='inline-flex items-center justify-center rounded-lg bg-white text-gray-900 px-10 py-5 text-center text-lg font-bold transition duration-300 ease-in-out hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:-translate-y-1'>
-                      立即阅读 →
+                      了解专栏 →
                     </SmartLink>
                   </div>
                 </div>
