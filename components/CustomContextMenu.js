@@ -41,6 +41,7 @@ export default function CustomContextMenu(props) {
   }, [router])
 
   useEffect(() => {
+    /* 自定义右键菜单功能已注释
     const handleContextMenu = event => {
       event.preventDefault()
       // 计算点击位置加菜单宽高是否超出屏幕，如果超出则贴边弹出
@@ -70,6 +71,7 @@ export default function CustomContextMenu(props) {
       window.removeEventListener('contextmenu', handleContextMenu)
       window.removeEventListener('click', handleClick)
     }
+    // */
   }, [windowSize])
 
   function handleBack() {
