@@ -48,7 +48,7 @@ export const Hero = props => {
                       </span>
                     </div>
                     <h3 className='text-2xl sm:text-3xl font-bold text-white mb-4'>
-                        序舟好公司精选・估值评级（周更）
+                        序舟好公司精选・估值排名（周更）
                     </h3>
                     <p className='text-gray-300 mb-10 max-w-2xl mx-auto'>
                       采用“序舟的投资方法”（本网站免费分享），结合本专栏，<br /> 你也可以像我一样，通过投资改变生活，实现自由。</p>
