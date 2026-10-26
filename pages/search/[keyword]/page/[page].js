@@ -3,6 +3,7 @@ import { getDataFromCache } from '@/lib/cache/cache_manager'
 import { siteConfig } from '@/lib/config'
 import { fetchGlobalAllData } from '@/lib/db/SiteDataApi'
 import { DynamicLayout } from '@/themes/theme'
+import { searchPostsByAlgolia } from '@/lib/plugins/algolia'
 
 const Index = props => {
   const { keyword } = props
@@ -27,7 +28,8 @@ export async function getStaticProps({ params: { keyword, page }, locale }) {
   const allPosts = allPages?.filter(
     page => page.type === 'Post' && page.status === 'Published'
   )
-  props.posts = await filterByMemCache(allPosts, keyword)
+  // 优先使用 Algolia 全文搜索，未配置或异常时回退到本地内存过滤
+  props.posts = await searchPosts(allPosts, keyword)
   props.postCount = props.posts.length
   const POSTS_PER_PAGE = siteConfig('POSTS_PER_PAGE', 12, props?.NOTION_CONFIG)
   // 处理分页
@@ -100,6 +102,21 @@ function getTextContent(textArray) {
  */
 const isIterable = obj =>
   obj != null && typeof obj[Symbol.iterator] === 'function'
+
+/**
+ * 搜索文章：优先调用 Algolia 全文搜索，未配置或异常时回退本地内存过滤
+ * @param {*} allPosts 全部已发布文章
+ * @param {*} keyword 关键词
+ * @returns 命中的文章列表（按 Algolia 相关度排序）
+ */
+async function searchPosts(allPosts, keyword) {
+  const algoliaResult = await searchPostsByAlgolia(keyword)
+  if (algoliaResult) {
+    const postMap = new Map((allPosts || []).map(p => [p.id, p]))
+    return algoliaResult.objectIds.map(id => postMap.get(id)).filter(Boolean)
+  }
+  return filterByMemCache(allPosts, keyword)
+}
 
 /**
  * 在内存缓存中进行全文索引

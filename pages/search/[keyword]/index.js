@@ -4,6 +4,7 @@ import { siteConfig } from '@/lib/config'
 import { fetchGlobalAllData } from '@/lib/db/SiteDataApi'
 import { DynamicLayout } from '@/themes/theme'
 import { getPageContentText } from '@/lib/db/notion/getPageContentText'
+import { searchPostsByAlgolia } from '@/lib/plugins/algolia'
 
 const Index = props => {
   const theme = siteConfig('THEME', BLOG.THEME, props.NOTION_CONFIG)
@@ -24,7 +25,8 @@ export async function getStaticProps({ params: { keyword }, locale }) {
   const allPosts = allPages?.filter(
     page => page.type === 'Post' && page.status === 'Published'
   )
-  props.posts = await filterByMemCache(allPosts, keyword)
+  // 优先使用 Algolia 全文搜索，未配置或异常时回退到本地内存过滤
+  props.posts = await searchPosts(allPosts, keyword)
   props.postCount = props.posts.length
   const POST_LIST_STYLE = siteConfig(
     'POST_LIST_STYLE',
@@ -57,6 +59,21 @@ export function getStaticPaths() {
     paths: [{ params: { keyword: 'NotionNext' } }],
     fallback: true
   }
+}
+
+/**
+ * 搜索文章：优先调用 Algolia 全文搜索，未配置或异常时回退本地内存过滤
+ * @param {*} allPosts 全部已发布文章
+ * @param {*} keyword 关键词
+ * @returns 命中的文章列表（按 Algolia 相关度排序）
+ */
+async function searchPosts(allPosts, keyword) {
+  const algoliaResult = await searchPostsByAlgolia(keyword)
+  if (algoliaResult) {
+    const postMap = new Map((allPosts || []).map(p => [p.id, p]))
+    return algoliaResult.objectIds.map(id => postMap.get(id)).filter(Boolean)
+  }
+  return filterByMemCache(allPosts, keyword)
 }
 
 /**
