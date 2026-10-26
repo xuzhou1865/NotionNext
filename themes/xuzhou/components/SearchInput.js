@@ -1,4 +1,5 @@
 import { useGlobal } from '@/lib/global'
+import { siteConfig } from '@/lib/config'
 import { useRouter } from 'next/router'
 import { useImperativeHandle, useRef, useState } from 'react'
 
@@ -12,6 +13,8 @@ let lock = false
 const SearchInput = ({ currentTag, keyword, cRef }) => {
   const { locale } = useGlobal()
   const router = useRouter()
+  // by xuzhou 渲染期读取配置（siteConfig 内部有 useGlobal，不能在事件回调中调用）
+  const enableAlgolia = !!siteConfig('ALGOLIA_APP_ID')
   const searchInputRef = useRef(null)
   useImperativeHandle(cRef, () => {
     return {
@@ -23,7 +26,12 @@ const SearchInput = ({ currentTag, keyword, cRef }) => {
   const handleSearch = () => {
     const key = searchInputRef.current.value
     if (key && key !== '') {
-      router.push({ pathname: '/search/' + key }).then(r => {})
+      // by xuzhou 配置了Algolia时走静态路由 /search?s=关键词，避免纯静态部署下动态路由404
+      if (enableAlgolia) {
+        router.push({ pathname: '/search', query: { s: key } }).then(r => {})
+      } else {
+        router.push({ pathname: '/search/' + key }).then(r => {})
+      }
     } else {
       router.push({ pathname: '/' }).then(r => {})
     }

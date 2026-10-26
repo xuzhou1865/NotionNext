@@ -19,10 +19,15 @@ const Search = props => {
   // 静态过滤
   if (keyword) {
     filteredPosts = posts.filter(post => {
-      const tagContent = post?.tags ? post?.tags.join(' ') : ''
-      const categoryContent = post.category ? post.category.join(' ') : ''
+      // by xuzhou 防御 category/tags 不是数组（如字符串）导致的 join 报错
+      const tagContent = Array.isArray(post?.tags)
+        ? post.tags.join(' ')
+        : post?.tags || ''
+      const categoryContent = Array.isArray(post?.category)
+        ? post.category.join(' ')
+        : post?.category || ''
       const searchContent =
-        post.title + post.summary + tagContent + categoryContent
+        (post.title || '') + (post.summary || '') + tagContent + categoryContent
       return searchContent.toLowerCase().includes(keyword.toLowerCase())
     })
   } else {

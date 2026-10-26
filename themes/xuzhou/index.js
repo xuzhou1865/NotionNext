@@ -7,7 +7,8 @@ import NotionPage from '@/components/NotionPage'
 import { siteConfig } from '@/lib/config'
 import { isBrowser } from '@/lib/utils'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import algoliasearch from 'algoliasearch'
 import { Career } from './components/Career'
 import { BackToTopButton } from './components/BackToTopButton'
 import { Blog } from './components/Blog'
@@ -234,6 +235,54 @@ const LayoutSearch = props => {
     const { keyword } = props
     const router = useRouter()
     const currentSearch = keyword || router?.query?.s
+    const { locale } = useGlobal()
+
+    // by xuzhou 纯静态部署下用浏览器端Algolia客户端搜索（Search-Only安全密钥），失败时回退到本地过滤结果
+    // 直接读 NEXT_PUBLIC_* 环境变量（构建时内联到客户端），避免渲染期多次调用 siteConfig 触发 hooks 警告
+    const algoliaAppId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID
+    const algoliaKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_APP_KEY
+    const algoliaIndexName = process.env.NEXT_PUBLIC_ALGOLIA_INDEX
+    const enableAlgolia = !!(algoliaAppId && algoliaKey && algoliaIndexName)
+    const [algoliaPosts, setAlgoliaPosts] = useState(null)
+    const [algoliaLoading, setAlgoliaLoading] = useState(false)
+
+    useEffect(() => {
+        if (!enableAlgolia || !currentSearch) {
+            setAlgoliaPosts(null)
+            return
+        }
+        let cancel = false
+        setAlgoliaLoading(true)
+        const client = algoliasearch(algoliaAppId, algoliaKey)
+        client
+            .initIndex(algoliaIndexName)
+            .search(currentSearch, { hitsPerPage: 50 })
+            .then(res => {
+                if (cancel) return
+                const hits = res?.hits || []
+                setAlgoliaPosts(
+                    hits.map(h => ({
+                        id: h.objectID,
+                        title: h.title,
+                        summary: h.summary,
+                        slug: h.slug,
+                        href: '/' + h.slug,
+                        pageCoverThumbnail: h.pageCover,
+                        lastEditedDay: h.lastEditedDate,
+                        category: h.category,
+                        tags: h.tags
+                    }))
+                )
+            })
+            .catch(() => {
+                // 请求失败时保持null，回退到本地过滤结果
+                if (!cancel) setAlgoliaPosts(null)
+            })
+            .finally(() => !cancel && setAlgoliaLoading(false))
+        return () => {
+            cancel = true
+        }
+    }, [currentSearch, enableAlgolia, algoliaAppId, algoliaKey, algoliaIndexName])
 
     useEffect(() => {
         if (isBrowser) {
@@ -247,11 +296,22 @@ const LayoutSearch = props => {
             })
         }
     }, [])
+
+    const posts =
+        enableAlgolia && currentSearch && algoliaPosts
+            ? algoliaPosts
+            : props.posts
+
     return (
         <>
             <section className='max-w-7xl mx-auto bg-white pb-10 pt-20 dark:bg-dark lg:pb-20 lg:pt-[120px]'>
                 <SearchInput {...props} />
-                {currentSearch && <Blog {...props} />}
+                {currentSearch && enableAlgolia && algoliaLoading && (
+                    <div className='py-8 text-center text-gray-500 dark:text-gray-400'>
+                        {locale?.COMMON?.LOADING || 'Loading...'}
+                    </div>
+                )}
+                {currentSearch && posts?.length > 0 && <Blog posts={posts} />}
             </section>
         </>
     )
