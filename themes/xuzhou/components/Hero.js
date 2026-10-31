@@ -53,9 +53,9 @@ export const Hero = props => {
                     <p className='text-gray-300 mb-10 max-w-2xl mx-auto'>
                       采用“序舟的投资方法”（本网站免费分享），结合本专栏，<br /> 你也可以像我一样，通过投资改变生活，实现自由。</p>
                     <SmartLink
-                      href='https://xiaobot.net/p/xz_good_company?refer=d1259880-8c91-425a-8c0d-04376ba72b1a&utm_source=thexuzhou.com&utm_medium=website&utm_campaign=xiaobot_subscribe&utm_content=home_btn'
+                      href=''
                       className='inline-flex items-center justify-center rounded-lg bg-white text-gray-900 px-10 py-5 text-center text-lg font-bold transition duration-300 ease-in-out hover:bg-gray-100 shadow-lg hover:shadow-xl transform hover:-translate-y-1'>
-                      了解专栏 →
+                      了解专栏（暂停止开放） →
                     </SmartLink>
                   </div>
                 </div>
